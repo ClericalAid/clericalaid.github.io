@@ -1,0 +1,16 @@
+---
+layout: default
+title: Posts
+---
+
+<main>
+    <div class="content">
+        <div class="section-title">All Posts</div>
+        
+        {% for post in site.posts %}
+        <div class="project-block">
+            <a href="{{ post.url | relative_url }}" class="project-link">{{ post.date | date: "%B %d, %Y" }} - {{ post.title }}</a>
+        </div>
+        {% endfor %}
+    </div>
+</main>

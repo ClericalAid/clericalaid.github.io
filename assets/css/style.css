@@ -1,0 +1,140 @@
+/* Brown color palette from your Svelte blog */
+:root {
+    --brown-50: #fdf8f6;
+    --brown-100: #f2e8e5;
+    --brown-200: #eaddd7;
+    --brown-300: #e0cec7;
+    --brown-400: #d2bab0;
+    --brown-500: #bfa094;
+    --brown-600: #a18072;
+    --brown-700: #977669;
+    --brown-800: #846358;
+    --brown-900: #43302b;
+    --brown-950: #3B2F2F;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    line-height: 1.6;
+    color: #000;
+    background-color: var(--brown-200);
+    margin: 0;
+    padding: 0;
+}
+
+.navbar {
+    background-color: var(--brown-800);
+    height: 3rem;
+    display: flex;
+    margin: 2.75rem 0;
+}
+
+.navbar-link {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-decoration: none;
+    font-size: 1.125rem;
+    transition: background-color 0.2s ease;
+}
+
+.navbar-link:hover {
+    background-color: var(--brown-600);
+}
+
+.navbar-link:first-child:hover {
+    background-color: var(--brown-600);
+}
+
+.navbar-link:not(:first-child):hover {
+    background-color: var(--brown-400);
+}
+
+@media (min-width: 768px) {
+    .navbar-link {
+        font-size: 1.25rem;
+    }
+}
+
+html {
+    background-color: var(--brown-200);
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+}
+
+.content {
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+.section-title {
+    font-size: 1.5rem;
+    margin-bottom: 0.75rem;
+    font-weight: 600;
+    color: #000;
+}
+
+.text-block {
+    margin-bottom: 1.5rem;
+    color: #000;
+}
+
+
+.project-block {
+    margin-bottom: 2.5rem;
+}
+
+.project-link {
+    color: var(--brown-800);
+    text-decoration: underline;
+    font-size: 1.125rem;
+}
+
+.project-link:hover {
+    color: var(--brown-700);
+}
+
+/* Code block styling */
+pre {
+    background-color: var(--brown-950);
+    color: #f8f8f2;
+    padding: 1.5rem;
+    border-radius: 8px;
+    overflow-x: auto;
+    margin: 1.5rem 0;
+    border: 1px solid var(--brown-700);
+}
+
+code {
+    background-color: var(--brown-300);
+    color: var(--brown-950);
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 0.9em;
+}
+
+pre code {
+    background-color: transparent;
+    color: inherit;
+    padding: 0;
+    border-radius: 0;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .container {
+        padding: 1rem;
+    }
+    
+    pre {
+        padding: 1rem;
+        margin: 1rem 0;
+    }
+}

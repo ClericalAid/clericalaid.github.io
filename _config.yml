@@ -1,0 +1,24 @@
+title: Clerical Blog
+description: Tinkering adventures in software engineering
+url: "https://clericalaid.github.io"
+baseurl: ""
+
+markdown: kramdown
+highlighter: rouge
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+
+permalink: /posts/:title/
+
+collections:
+  posts:
+    output: true
+    permalink: /posts/:title/
+
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"

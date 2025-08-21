@@ -142,7 +142,7 @@ $2 = {strategy = (unknown: 0x3354), n_threads = 0, n_max_text_ctx = 812755209, o
   grammar_penalty = -7.05596484e-30}
 ```
 
-This `params` variable actually gets passed in from python. And looking in the C code, the `n_grammar_rules` variable is indeed very large. Let's see what value this is supposed to be back in python.
+This `params` variable actually gets passed in from python. And looking in the C code, the `n_grammar_rules` variable is indeed very large. It didn't make sense to me that a variable called "grammar_rules" would have an arbitrary large value. Let's see what value this is supposed to be back in python.
 
 ## Getting the breakpoint in vocode
 To get a breakpoint here, I looked at the method that was being run in `whisper.cpp` when the error happened. Looking at the stack trace, we see a call to `whisper_full` at #21.
@@ -158,4 +158,6 @@ There was one reference. So we set a breakpoint with `pdb.set_trace()`, rebuild 
 ```
 
 ## Making sense of everything
-So afterwards, I had to check the `WhisperFullParams` object and it seemed like it's supposed to match the shape of the C struct in `whisper.cpp`. This is because this parameter is being passed in from python into the C code via the `ctypes` library, and C is very picky with how structs are shaped.
+So afterwards, I had to check the `WhisperFullParams` object and it seemed like it's supposed to match the shape of the C struct in `whisper.cpp`. It seems that this parameter is being passed in from python into the C code via the `ctypes` library, and allows Python to work with C code. However, C is very picky with how structs are shaped. So when there is a mismatch, the member variables of the struct starts pointing at random values in memory, because it wasn't properly assigned a value when it was called from Python. So in order to fix this, we need to make sure that the `WhisperFullParams` object matched the shape in the whisper library's C code.
+
+A PR was submitted and landed [here](https://github.com/vocodedev/vocode-core/pull/517) which fixes the issue.

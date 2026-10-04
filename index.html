@@ -1,0 +1,25 @@
+---
+layout: default
+title: Home
+---
+
+<main>
+    <div class="content">
+        <div class="section-title">About me</div>
+        
+        <div class="text-block">
+            I studied mechanical engineering, but got really lucky and ended up working as a software engineer. I enjoy tinkering around and will try to blog about my (mis)adventures. I spent years building in silence and am trying to turn it around.
+        </div>
+        
+        <div class="text-block">
+            Feel free to DM me on Twitter. I have received very helpful advice from others there and would love to pay it forward.
+        </div>
+
+        <div class="section-title">Recent Posts</div>
+        {% for post in site.posts limit:3 %}
+        <div class="project-block">
+            <a href="{{ post.url | relative_url }}" class="project-link">{{ post.date | date: "%B %d, %Y" }} - {{ post.title }}</a>
+        </div>
+        {% endfor %}
+    </div>
+</main>

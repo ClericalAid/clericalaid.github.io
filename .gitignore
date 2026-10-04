@@ -1,0 +1,5 @@
+_site/
+.jekyll-cache/
+.jekyll-metadata
+# Local tool settings (was never tracked in the previous history)
+.claude/

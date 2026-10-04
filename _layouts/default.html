@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ page.title | default: site.title }}</title>
+    <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+</head>
+<body>
+    <div class="container">
+        <nav class="navbar">
+            <a href="/" class="navbar-link">Home</a>
+            <a href="/posts/" class="navbar-link">Posts</a>
+            <a href="https://twitter.com/ClericalAid" class="navbar-link">Twitter</a>
+            <a href="https://github.com/ClericalAid" class="navbar-link">GitHub</a>
+        </nav>
+        {{ content }}
+    </div>
+</body>
+</html>
